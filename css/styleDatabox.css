@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+body {
+    font-family: Arial;
+    background: #003873;
+    padding: 50px;
+    background-image: url("../img/bg_nwbg_1.jpg");
+    background-size:100% auto;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+
+.navbar {
+    margin-bottom: 20px;
+    background-color: #003873;
+}
+
+.white {
+    background-color: white;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+    padding-left: 10px;
+}
+
+input {
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 2px solid transparent;
+    border-radius: 0px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+
+    transition: border .5s;
+}
+
+.dataTables_filter {
+    visibility: hidden !important;
+}
+
+#search {
+    margin-left: 20px;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="js/config.js"></script>
+
+    <script src="js/databox.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+    <link rel="stylesheet" href="css/styleDatabox.css">
+
+
+</head>
+
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand" href="#">
+            <img src="img/icon.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            NÖ Wohnbaugruppe Databox
+        </a>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Logout <span class="sr-only"></span></a>
+            </li>
+        </ul>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Suche" aria-label="Suche" id="search">
+
+        </form>
+    </nav>
+
+
+</div>
+
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-12 offset-md-0">
+        <table id="example" class="display white" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Empfangsdatum</th>
+                <th>Download Datum</th>
+                <th>Download</th>
+
+            </tr>
+            </thead>
+
+
+            <tbody>
+            <tr>
+                <td>Betriebskostenabrechnung 2015</td>
+                <td>01.11.2015</td>
+                <td>-</td>
+                <td><button type="button" class="btn btn-primary btn-sm btn-block" onclick="downloadItem()">Download</button></td>
+
+            </tr>
+
+            <tr>
+                <td>Betriebskostenabrechnung 2016</td>
+                <td>01.11.2016</td>
+                <td>-</td>
+                <td><button type="button" class="btn btn-primary btn-sm btn-block" onclick="downloadItem()">Download</button></td>
+
+            </tr>
+
+            <tr>
+                <td>Betriebskostenabrechnung 2017</td>
+                <td>01.11.2017</td>
+                <td>-</td>
+                <td><button type="button" class="btn btn-primary btn-sm btn-block" onclick="downloadItem()">Download</button></td>
+
+            </tr>
+
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
