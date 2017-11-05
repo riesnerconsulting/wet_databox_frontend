@@ -2,7 +2,7 @@
 <html >
 <head>
     <meta charset="UTF-8">
-    <title>Login Form</title>
+    <title>NÖ Wohnbaugruppe - Databox</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -20,21 +20,52 @@
 
 <body>
 
+<!-- Modal -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changePAsswordModalLabel">Passwort ändern</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="control-group">
+                    <input type="password" class="login-field" value="" placeholder="" id="change-pass">
+                    <label class="login-field-icon fui-lock" for="change-pass">Passwort</label>
+                </div>
+                <div class="control-group">
+                    <input type="password" class="login-field" value="" placeholder="" id="login-pass-check">
+                    <label class="login-field-icon fui-lock" for="login-pass-check">Passwort wiederholen:</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="changePassword()">speichern</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
-    <nav class="navbar navbar-light bg-light justify-content-between">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="img/icon.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
             NÖ Wohnbaugruppe Databox
         </a>
-
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Logout <span class="sr-only"></span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="openPasswordModal()">Passwort ändern <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="logout()">Logout <span class="sr-only"></span></a>
             </li>
         </ul>
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Suche" aria-label="Suche" id="search">
-
         </form>
     </nav>
 
@@ -47,7 +78,7 @@
 
     <div class="row">
         <div class="col-md-12 offset-md-0">
-        <table id="example" class="display white" cellspacing="0" width="100%">
+        <table id="table" class="display white" cellspacing="0" width="100%">
             <thead>
             <tr>
                 <th>Name</th>
@@ -59,31 +90,7 @@
             </thead>
 
 
-            <tbody>
-            <tr>
-                <td>Betriebskostenabrechnung 2015</td>
-                <td>01.11.2015</td>
-                <td>-</td>
-                <td><button type="button" class="btn btn-primary btn-sm btn-block" onclick="downloadItem()">Download</button></td>
-
-            </tr>
-
-            <tr>
-                <td>Betriebskostenabrechnung 2016</td>
-                <td>01.11.2016</td>
-                <td>-</td>
-                <td><button type="button" class="btn btn-primary btn-sm btn-block" onclick="downloadItem()">Download</button></td>
-
-            </tr>
-
-            <tr>
-                <td>Betriebskostenabrechnung 2017</td>
-                <td>01.11.2017</td>
-                <td>-</td>
-                <td><button type="button" class="btn btn-primary btn-sm btn-block" onclick="downloadItem()">Download</button></td>
-
-            </tr>
-
+            <tbody id="tableBody">
             </tbody>
         </table>
         </div>

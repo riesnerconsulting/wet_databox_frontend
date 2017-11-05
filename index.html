@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Login Form</title>
+  <title>NÖ Wohnbaugruppe - Databox Login</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -16,6 +16,59 @@
 
 <body>
   <body>
+
+  <!-- Modal -->
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			  <div class="modal-header">
+				  <h5 class="modal-title" id="changePAsswordModalLabel">Passwort ändern</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+				  </button>
+			  </div>
+			  <div class="modal-body">
+                  <div class="control-group">
+                      <input type="password" class="login-field" value="" placeholder="" id="change-pass">
+                      <label class="login-field-icon fui-lock" for="change-pass">Passwort</label>
+                  </div>
+                  <div class="control-group">
+                      <input type="password" class="login-field" value="" placeholder="" id="login-pass-check">
+                      <label class="login-field-icon fui-lock" for="login-pass-check">Passwort wiederholen:</label>
+                  </div>
+			  </div>
+			  <div class="modal-footer">
+				  <button type="button" class="btn btn-primary" onclick="changePassword()">speichern</button>
+			  </div>
+		  </div>
+	  </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="forgotPasswordModalLabel">Passwort vergessen</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <div class="control-group">
+                      <input type="text" class="login-field" value="" placeholder="" id="forgot-pass">
+                      <label class="login-field-icon fui-lock" for="change-pass">Benutzername</label>
+                  </div>
+
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" onclick="sendPasswordForgottenMail()">senden</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
 	<div class="login">
 		<div class="login-screen">
 			<div class="row">
@@ -44,7 +97,7 @@
 				</div>
 
 				<a class="btn btn-primary btn-large btn-block" href="#" onclick="tryLogin()">Login</a>
-				<a class="login-link" href="#">Passwort vergessen?</a>
+				<a class="login-link" href="#" onclick="forgotPassword()">Passwort vergessen?</a>
 				<div class="alert alert-primary" role="alert" id="alert_wrong_user">
 					Benutzername oder Passwort falsch.
 				</div>
