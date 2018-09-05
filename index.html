@@ -4,12 +4,16 @@
   <meta charset="UTF-8">
   <title>NÖ Wohnbaugruppe - Databox Login</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-	<script src="js/config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/purl/2.3.1/purl.js"></script>
+	<script type="text/javascript" src="js/pwstrength-bootstrap.min.js"></script>
+    <script src="js/config.js"></script>
 	<script src="js/index.js"></script>
 	<link rel="stylesheet" href="css/style.css">
+
+
 
   
 </head>
@@ -22,21 +26,28 @@
 	  <div class="modal-dialog" role="document">
 		  <div class="modal-content">
 			  <div class="modal-header">
-				  <h5 class="modal-title" id="changePAsswordModalLabel">Passwort ändern</h5>
+				  <h5 class="modal-title" id="changePasswordModalLabel">Passwort ändern</h5>
 				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					  <span aria-hidden="true">&times;</span>
 				  </button>
 			  </div>
 			  <div class="modal-body">
-                  <div class="control-group">
-                      <input type="password" class="login-field" value="" placeholder="" id="change-pass">
-                      <label class="login-field-icon fui-lock" for="change-pass">Passwort</label>
+				  <a>Bei Erstanmeldung sowie Passwortr&uuml;cksetzung geben sie bitte ein neues Passwort an und bestätigen dieses.</a>
+                  <hr>
+
+                  <a>Bitte verwenden sie ein Passwort mit mindestens 8 Zeichen sowie einer Kombination aus Kleinbuchstaben,Großbuchstaben und Ziffern.</a>
+                  <div class="form-group">
+                      <input type="password" class="login-field" value="" placeholder="Passwort" id="change-pass">
                   </div>
-                  <div class="control-group">
-                      <input type="password" class="login-field" value="" placeholder="" id="login-pass-check">
-                      <label class="login-field-icon fui-lock" for="login-pass-check">Passwort wiederholen:</label>
+
+                  <div class="form-group">
+                      <input type="password" class="login-field" value="" placeholder="Passwort wiederholen" id="login-pass-check">
+                  </div>
+                  <div id="pwd-container">
+
                   </div>
 			  </div>
+
 			  <div class="modal-footer">
 				  <button type="button" class="btn btn-primary" onclick="changePassword()">speichern</button>
 			  </div>
@@ -56,8 +67,9 @@
               </div>
               <div class="modal-body">
                   <div class="control-group">
+					  <label class="login-field-icon fui-lock" for="change-pass">E-Mail Adresse</label>
                       <input type="text" class="login-field" value="" placeholder="" id="forgot-pass">
-                      <label class="login-field-icon fui-lock" for="change-pass">Benutzername</label>
+
                   </div>
 
               </div>
@@ -67,6 +79,30 @@
           </div>
       </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="userAgreementModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+	  <div class="modal-dialog" role="document"  style="width:600px;">
+		  <div class="modal-content"  style="width:600px;">
+			  <div class="modal-header">
+				  <h5 class="modal-title" id="userAgreementModalLabel"></h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+				  </button>
+			  </div>
+			  <div class="modal-body">
+				  <a id="userAgreementModalText"></a>
+
+
+			  </div>
+			  <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" onclick="downloadPDF()">PDF herunterladen</button>
+				  <button type="button" class="btn btn-primary" onclick="acceptAgreement()">akzeptieren</button>
+			  </div>
+		  </div>
+	  </div>
+  </div>
+
 
 
 	<div class="login">
@@ -87,7 +123,7 @@
 
 			<div class="login-form">
 				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="Benutzername" id="login-name">
+				<input type="text" class="login-field" value="" placeholder="E-Mail Adresse" id="login-name">
 				<label class="login-field-icon fui-user" for="login-name"></label>
 				</div>
 
@@ -99,8 +135,9 @@
 				<a class="btn btn-primary btn-large btn-block" href="#" onclick="tryLogin()">Login</a>
 				<a class="login-link" href="#" onclick="forgotPassword()">Passwort vergessen?</a>
 				<div class="alert alert-primary" role="alert" id="alert_wrong_user">
-					Benutzername oder Passwort falsch.
+					E-Mail Adresse oder Passwort falsch.
 				</div>
+				<a class="login-link" href="http://nwbg.at/hp/impressum.html">Die NWBG Databox ist ein Service der NÖ Wohnbaugruppe.</a>
 			</div>
 		</div>
 	</div>

@@ -86,3 +86,7 @@ box-shadow: none;
 .navbar {
   margin-bottom: 20px;
 }
+
+.progress {
+  margin-top: 10px;
+}

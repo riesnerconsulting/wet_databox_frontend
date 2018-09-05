@@ -49,3 +49,53 @@ input {
 #search {
     margin-left: 20px;
 }
+
+input {
+    text-align: center;
+    background-color: #ECF0F1;
+    border: 2px solid transparent;
+    border-radius: 0px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s;
+}
+
+input:focus {
+    border: 2px solid #3498DB;
+    box-shadow: none;
+}
+
+
+#navbarTitle {
+     font-size: 14px !important;
+     float: left;
+    margin-left: 5px;
+    font-weight: bold;
+ }
+
+#navbarSubtitle {
+    font-size: 14px !important;
+    float: left;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+#logoNWBG {
+    float: left
+
+}
+
+br {
+    display: block;
+    margin: 3px 0;
+}
+
+.login-link {
+    font-size: 12px;
+    color: #444;
+    display: block;
+    margin-top: 0px;
+    margin-left: -5px;
+}

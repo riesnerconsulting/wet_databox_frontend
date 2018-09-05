@@ -2,12 +2,14 @@
 <html >
 <head>
     <meta charset="UTF-8">
-    <title>NÖ Wohnbaugruppe - Databox</title>
+    <title>NÖ Wohnbaugruppe - Portal</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/purl/2.3.1/purl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-ajax-downloader@1.1.0/src/ajaxdownloader.min.js"></script>
     <script src="js/config.js"></script>
 
     <script src="js/databox.js"></script>
@@ -25,21 +27,28 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="changePAsswordModalLabel">Passwort ändern</h5>
+                <h5 class="modal-title" id="changePasswordModalLabel">Passwort ändern</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="control-group">
-                    <input type="password" class="login-field" value="" placeholder="" id="change-pass">
-                    <label class="login-field-icon fui-lock" for="change-pass">Passwort</label>
+                <a>Bei Erstanmeldung sowie Passwortr&uuml;cksetzung geben sie bitte ein neues Passwort an und bestätigen dieses.</a>
+                <hr>
+
+                <a>Bitte verwenden sie ein Passwort mit mindestens 8 Zeichen sowie einer Kombination aus Kleinbuchstaben,Großbuchstaben und Ziffern.</a>
+                <div class="form-group">
+                    <input type="password" class="login-field" value="" placeholder="Passwort" id="change-pass">
                 </div>
-                <div class="control-group">
-                    <input type="password" class="login-field" value="" placeholder="" id="login-pass-check">
-                    <label class="login-field-icon fui-lock" for="login-pass-check">Passwort wiederholen:</label>
+
+                <div class="form-group">
+                    <input type="password" class="login-field" value="" placeholder="Passwort wiederholen" id="login-pass-check">
+                </div>
+                <div id="pwd-container">
+
                 </div>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="changePassword()">speichern</button>
             </div>
@@ -49,10 +58,11 @@
 
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            NÖ Wohnbaugruppe Databox
-        </a>
+        <div class="navbar-brand" href="#">
+            <img src="img/icon.png" width="45" height="45" class="d-inline-block align-top" alt="" id="logoNWBG">
+            <a id="navbarTitle">NÖ Wohnbaugruppe Databox</a><br>
+            <a id="navbarSubtitle">mail@riesner.co.at</a>
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -63,9 +73,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" onclick="logout()">Logout <span class="sr-only"></span></a>
             </li>
+
         </ul>
         <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Suche" aria-label="Suche" id="search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Filter" aria-label="Filter" id="search">
         </form>
     </nav>
 
@@ -83,7 +94,7 @@
             <tr>
                 <th>Name</th>
                 <th>Empfangsdatum</th>
-                <th>Download Datum</th>
+                <th>Erstabholung am</th>
                 <th>Download</th>
 
             </tr>
@@ -95,6 +106,16 @@
         </table>
         </div>
     </div>
+</div>
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="footer">
+       <a class="login-link to-right" href="http://nwbg.at/hp/impressum.html">Die NWBG Databox ist ein Service der NÖ Wohnbaugruppe |&nbsp;</a>
+
+
+    </nav>
+
+
 </div>
 
 
