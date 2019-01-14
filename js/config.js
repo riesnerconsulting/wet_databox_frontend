@@ -1,6 +1,6 @@
 var config =  {
-    //serverUrl: 'https://portal.nwbg.at/portalserver',
-    serverUrl: 'http://nwbg.riesner.host/databoxapi',
+    serverUrl: 'http://portal.wet.at/portalserver',
+    //serverUrl: 'http://nwbg.riesner.host/databoxapi',
     login : '/auth',
     getUser : '/user/isActive',
     getAllDocuments : '/user/getAllDocumentsOfUser',
