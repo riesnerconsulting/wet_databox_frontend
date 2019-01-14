@@ -2,6 +2,17 @@ var oTable;
 
 $( document ).ready(function() {
 
+    // Replace Variables from Config
+    $("#logoSmall").attr("src",config.imgBasefolder + config.logoSmall);
+    $(document).attr("title", config.title);
+    $('body').css('background-image', 'url(./img/'+config.backgroundImage+')');
+    $('#impressum').text(config.impressumText);
+    $("#impressum").attr("href",config.impressumLink);
+    $('#terms').text(config.termsText);
+    $("#terms").attr("href",config.termsLink);
+    $('#navbarTitle').text(config.title);
+
+
     $("#search").focus();
     var url = config.serverUrl+config.loginIsValid;
     $.ajax({

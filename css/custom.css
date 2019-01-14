@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+body {
+    font-family: Arial;
+    background: #fed136;
+    padding: 50px;
+    background-image: url("../img/bg_nwbg_2.jpg");
+    background-size:100% auto;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+
+.navbar {
+    margin-bottom: 20px;
+    background-color: #fed136;
+}
+
+.white {
+    background-color: white;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+    padding-left: 10px;
+}
+
+input {
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 2px solid transparent;
+    border-radius: 0px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+
+    transition: border .5s;
+}
+
+.dataTables_filter {
+    visibility: hidden !important;
+}
+
+#search {
+    margin-left: 20px;
+}
+
+input {
+    text-align: center;
+    background-color: #ECF0F1;
+    border: 2px solid transparent;
+    border-radius: 0px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s;
+}
+
+input:focus {
+    border: 2px solid #fed136;
+    box-shadow: none;
+}
+
+
+#navbarTitle {
+    font-size: 14px !important;
+    float: left;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+#navbarSubtitle {
+    font-size: 14px !important;
+    float: left;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+#logoSmall {
+    float: left
+
+}
+
+br {
+    display: block;
+    margin: 3px 0;
+}
+
+.login-link {
+    font-size: 12px;
+    color: #444;
+    display: block;
+    margin-top: 0px;
+    margin-left: -5px;
+}
+
+.btn {
+    border: 2px solid transparent;
+    background: #fed136;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-shadow: none;
+    border-radius: 0px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.btn:hover {
+    background-color: #fed76c;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #fed76c;
+    border-color: #fed76c;
+}

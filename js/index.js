@@ -2,22 +2,22 @@ $( document ).ready(function() {
 
     $('.alert').hide();
 
+    // Replace Variables from Config
+    $("#logo").attr("src",config.imgBasefolder + config.logo);
+    $(document).attr("title", config.title);
+    $('body').css('background-image', 'url(./img/'+config.backgroundImage+')');
+    $('#impressum').text(config.impressumText);
+    $("#impressum").attr("href",config.impressumLink);
+
+
     $('#login-pass').keypress(function (e) {
         var key = e.which;
-        if(key == 13)  // the enter key code
+        if(key == 13)
         {
            tryLogin();
         }
     });
-
-
-
-
-
     $("#login-name").val(getUrlParameter('user'));
-
-
-
 });
 
 
@@ -159,9 +159,7 @@ function sendPasswordForgottenMail(){
             $('.alert').text("E-Mail Adresse nicht gefunden.")
             $('.alert').show();
         },
-
     });
-
 }
 
 function acceptAgreement() {
@@ -171,7 +169,6 @@ function acceptAgreement() {
         method: 'GET',
         headers: {"authorization": localStorage.getItem('nwbgInboxToken')},
         success : function (data){
-            console.log("aggreement accepted");
             window.open("databox.html", '_self');
         },
         error : function (data){
