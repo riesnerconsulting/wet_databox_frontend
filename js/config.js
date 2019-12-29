@@ -1,5 +1,5 @@
 var config =  {
-    serverUrl: 'http://portal.wet.at/portalserver',
+    serverUrl: 'https://wbsw.at',
     //serverUrl: 'http://nwbg.riesner.host/databoxapi',
     login : '/auth',
     getUser : '/user/isActive',
