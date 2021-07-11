@@ -1,5 +1,5 @@
 var config =  {
-    serverUrl: 'https://wbsw.at',
+    serverUrl: 'https://portal.wet.at/backend',
     //serverUrl: 'http://nwbg.riesner.host/databoxapi',
     login : '/auth',
     getUser : '/user/isActive',
@@ -11,5 +11,6 @@ var config =  {
     loginIsValid : '/user/loginIsValid',
     getUserAggreedOnLastVersion: '/user/userAggreedOnLastVersion?username=',
     getLatestUserAgreement: '/user/getLatestUserAgreement',
-    setAgreement: '/user/setAgreement?username='
+    setAgreement: '/user/setAgreement?username=',
+    resetPassword: '/user/resetPassword?uuid='
 }

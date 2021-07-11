@@ -202,7 +202,7 @@ function downloadPDF(){
         method: 'GET',
         headers: {"authorization": localStorage.getItem('nwbgInboxToken')},
         success: function (data) {
-            window.open("https://portal.nwbg.at/vereinbarung/"+data.url, '_blank');
+            window.open("https://portal.wet.at/vereinbarung/"+data.url, '_blank');
         },
         error: function (data) {
 

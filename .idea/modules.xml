@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../nwbg-admininterface/.idea/admininterface.iml" filepath="$PROJECT_DIR$/../nwbg-admininterface/.idea/admininterface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../confirmationpages/.idea/confirmationpages.iml" filepath="$PROJECT_DIR$/../confirmationpages/.idea/confirmationpages.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/inbox-fe.iml" filepath="$PROJECT_DIR$/.idea/inbox-fe.iml" />
     </modules>
   </component>

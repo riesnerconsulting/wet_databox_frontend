@@ -19,8 +19,10 @@ $( document ).ready(function() {
 
     oTable =  $('#table').DataTable( {
         "paging":   false,
-        "ordering": false,
+        "ordering": true,
         "info":     false,
+        "order": [[ 1, "desc" ]],
+        "columnDefs" : [{"targets":1, "type":"date-eu"}],
         "searching": true,
         "dom": 'Brt',
         "language": {
@@ -79,7 +81,7 @@ $( document ).ready(function() {
         method: 'GET',
         headers: {"authorization": localStorage.getItem('nwbgInboxToken')},
         success: function (data) {
-            $("#footer").append('<a class="login-link" href="https://portal.nwbg.at/vereinbarung/'+data.url+'">&nbsp;Nutzungsbedingungen</a>')
+            $("#footer").append('<a class="login-link" href="https://portal.wet.at/vereinbarung/'+data.url+'">&nbsp;Nutzungsbedingungen</a>')
         },
         error: function (data) {
             window.location.href = "index.html";
@@ -94,10 +96,6 @@ $( document ).ready(function() {
 
 
 function downloadItem(id){
-
-
-
-
 
     var url = config.serverUrl+config.downloadDocument+id.toString();
     $.ajax({
@@ -114,9 +112,8 @@ function downloadItem(id){
                 window.location.href=data;
             }
             else {
-                $.AjaxDownloader({
-                    url: data
-                });
+
+                window.open(data);
                 oTable.clear().draw();
                 $.ajax({
                     url : config.serverUrl+config.getAllDocuments,
@@ -139,6 +136,8 @@ function downloadItem(id){
                                 '<button type=\"button\" class=\"btn btn-primary btn-sm btn-block\" onclick=\"downloadItem('+obj.id+')\">Download</button>'
 
                             ] ).draw( false );
+
+
                         }
 
 
